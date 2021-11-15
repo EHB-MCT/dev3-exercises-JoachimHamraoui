@@ -44,13 +44,75 @@ fun Challenge2(optionsChal2: List<String>): String? {
     userChoice = readLine()
 
     when(userChoice) {
-        optionsChal2[0] -> if (randomValue >3) println("Correct, you won.") else loseTheGame()
-        optionsChal2[1] -> if (randomValue <4) println("Correct, you won.") else loseTheGame()
+        optionsChal2[0] -> if (randomValue >3) {
+            println("Correct, you won.")
+            Challenge3()
+        }  else loseTheGame()
+        optionsChal2[1] -> if (randomValue <4) {
+            println("Correct, you won.")
+            Challenge3()
+        } else loseTheGame()
     }
     return userChoice
 
 
 }
+
+fun Challenge3() {
+    println("You've beaten my first challenge, Sora.")
+    println("But to defeat me, you'll have to bet something far greater than your power.")
+    println("Your Friends!")
+    println("*Your friends have been sucked into playing cards*")
+    println("Now, guess in which kind of card your friends reside in?")
+    println("(1) Spade")
+    println("(2) Club")
+    println("(3) Heart")
+    println("(4) Diamond")
+
+    var userChoice: Int
+    do {
+        println("Now choose")
+        userChoice = readLine()?.toInt() ?: 0
+    } while (!setOf<Int>(1, 2, 3, 4).contains(userChoice))
+
+    when (userChoice) {
+        1 -> {
+            println("Shall I reveal the results?")
+            println("Oopsie daisy, looks like you lost");
+            println("You've taken considerable damage but have not died yet")
+            println("Go back to the previous challenge")
+            Challenge2(optionsChal2)
+        }
+        2 -> {
+            println("Shall I reveal the results?")
+            println("Oopsie daisy, looks like you lost");
+            println("*Luxord attacks with a furry of cards*")
+            println("Disappear, Sora!!!!")
+            loseTheGame()
+        }
+        3 -> {
+            println("Shall I reveal the results?")
+            println("Fortunately, you were right");
+            println("*You slash Luxord in half and win the battle*")
+            Challenge4()
+        }
+
+        4 -> {
+            println("Shall I reveal the results?")
+            println("Oopsie daisy, looks like you lost");
+            println("*Luxord attacks with a furry of cards*")
+            println("Disappear, Sora!!!!")
+            loseTheGame()
+        }
+    }
+
+}
+
+fun Challenge4() {
+    println("ayoo this is challenge 4")
+}
+
+
 
 fun loseTheGame(){
     println("You died! End of The Game!");
